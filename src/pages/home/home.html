@@ -9,7 +9,7 @@
     <ion-item *ngFor="let c of customer">
       <h2>{{c.customerName}}</h2>
       <p>{{c.customerTel}}</p>
-      <button ion-button clear item-end>View</button>
+      <button ion-button clear item-end (click)="showDetail(c.customerID)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>
