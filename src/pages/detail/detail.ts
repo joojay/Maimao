@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { Http } from '@angular/http';
+import{ Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /**
@@ -18,14 +17,15 @@ import 'rxjs/add/operator/map';
 })
 export class DetailPage {
   customer:any=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams , public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     let customerID=this.navParams.get('customerID');
-    let url = "http://localhost:8080/customer" + customerID;
+    let url = "http://localhost:8080/customers/" + customerID;
+    console.log(url)
     this.http.get(url)
-      .map(res=>res.json())
-      .subscribe(data=>{
-        this.customer = data;
-      });
+    .map(res=>res.json())
+    .subscribe(data => {
+      this.customer = data;
+    });
   }
 
   ionViewDidLoad() {
