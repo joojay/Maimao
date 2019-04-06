@@ -1,0 +1,33 @@
+<!--
+  Generated template for the NewcustomerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Customer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="addNewcustomer()">
+  <ion-list>
+     <ion-item>
+        <ion-label floating>ชื่อลูกค้า</ion-label>
+        <ion-input type="text" customerName="name" (ngMudel)="name.customerName"></ion-input>
+      </ion-item>
+    
+     <ion-item>
+        <ion-label floating>เบอร์ลูกค้า</ion-label>
+        <ion-input type="text" customerTel="Tel" (ngMudel)="tel.customerTel"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>เมล์ลูกค้า</ion-label>
+        <ion-input type="text" customerMail="Mail" (ngMudel)="mail.customerMail"></ion-input>
+      </ion-item>
+    <button ion-button block>save</button>
+  </ion-list>
+  </form>
+</ion-content>
