@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
+
+//HttpClient
+import { HttpClient } from '@angular/common/http';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the NewcustomerPage page.
@@ -16,23 +19,38 @@ import { HTTP } from '@ionic-native/http';
 })
 export class NewcustomerPage {
   customer = {
+    customerID:"",
     customerName:"",
     customerTel:"",
-    cutomerMail:""
+    customerMail:""
   };
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HTTP) {
+  data:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http: HttpClient, private alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewcustomerPage');
   }
-  addNewcustomer(){
+  addCustomer(){
     let url="http://localhost:8080/customer";
-    this.http.post(url,this.customer,{})
-      .then(data=>{
-        console.log(data.data.msg);
-      });
+    console.log(this.customer);
+    this.http.post(url, this.customer)
+      .subscribe(
+        res=>{
+            this.data = res;
+            if(this.data.msg==true){
+              this.showAlert("Success","Data added");
+              this.navCtrl.popToRoot();
+            }
+        }
+      ); 
   }
-
+  showAlert(msgTitle:string,message:string){
+    const alert = this.alertCtrl.create({
+      title: msgTitle,
+      subTitle: message,
+      buttons: ["OK"]
+    });
+    alert.present();
+  }
 }
