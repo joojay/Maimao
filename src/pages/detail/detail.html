@@ -1,6 +1,6 @@
+    
 <!--
   Generated template for the DetailPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -11,12 +11,16 @@
 </ion-header>
 
 <ion-content padding>
- <ion-card>
-     <ion-card-content>
-     {{customer.customerID}}
-    <p>ชื่อลูกค้า : {{customer.customerName}}</p> 
-    <p>เบอร์ลูกค้า : {{customer.customerTel}}</p> 
-    <p>Mail : {{customer.customerMail}}</p> 
-  </ion-card-content>
- </ion-card>
+  <ion-card>
+    <ion-card-header>
+        {{customer.customerName}}
+        <p>{{customer.customerTel}}</p>
+        <p>{{customer.customerMail}}</p>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+  <ion-item>
+      <button ion-button block (click)="editData(p.customerID)" block ></button>
+  </ion-item>
 </ion-content>

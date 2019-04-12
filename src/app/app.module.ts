@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DetailPage } from '../pages/detail/detail';
 import { ResultPage } from '../pages/result/result';
 import { NewcustomerPage } from '../pages/newcustomer/newcustomer';
+import { EditnewcustomerPage } from '../pages/editnewcustomer/editnewcustomer';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     TabsPage,
     DetailPage,
     ResultPage,
-    NewcustomerPage
+    NewcustomerPage,
+    EditnewcustomerPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     TabsPage,
     DetailPage,
     ResultPage,
-    NewcustomerPage
+    NewcustomerPage,
+    EditnewcustomerPage
   ],
   providers: [
     StatusBar,

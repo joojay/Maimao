@@ -4,6 +4,8 @@ import { DetailPage } from '../detail/detail';
 import { NewcustomerPage} from '../newcustomer/newcustomer';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
+import { EditnewcustomerPage } from '../editnewcustomer/editnewcustomer';
+
 
 @Component({
   selector: 'page-home',
@@ -12,12 +14,16 @@ import 'rxjs/add/operator/map';
 export class HomePage {
   customer:any=0;
   data:any=0;
-  constructor(public navCtrl: NavController,public navParam: NavParams, public http: Http,private alertCtrl:AlertController) {
+  constructor(public navCtrl: NavController,public navParam: NavParams, public http: Http,private alertCtrl : AlertController) {
     this.getData();
   }
   showDetail(id)
   {
     this.navCtrl.push(DetailPage,{customerID :id});
+  }
+  editnewcustomer(id)
+  {
+    this.navCtrl.push(EditnewcustomerPage,{customerID :id});
   }
   showNewcustomer()
   {
